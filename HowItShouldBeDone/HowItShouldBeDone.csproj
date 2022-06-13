@@ -167,6 +167,14 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Models\Album.cs" />
+    <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Manager.cs" />
+    <Compile Include="Models\Music.cs" />
+    <Compile Include="Models\Shirt.cs" />
+    <Compile Include="Models\Shop.cs" />
+    <Compile Include="Models\Song.cs" />
     <Compile Include="VID\AccountController.cs" />
     <Compile Include="VID\HomeController.cs" />
     <Compile Include="VID\ManageController.cs" />
