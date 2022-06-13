@@ -18,6 +18,7 @@ namespace HowItShouldBeDone.Models
         public string LastName { get; set; }
 
         [NotMapped]
+        [Display(Name ="Full Name")]
         public string FullName
         {
             get
