@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -24,6 +25,19 @@ namespace HowItShouldBeDone.VID
             return View(songs);
         }
 
+        public ActionResult Details(int? id)
+        {
+            if(id == null)
+            {   
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var song = _context.Songs.Include(s => s.Album.Artist).SingleOrDefault(s => s.ID == id);
+            if(song == null)
+            {
+                return HttpNotFound();
+            }
+            return View(song);
+        }
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
