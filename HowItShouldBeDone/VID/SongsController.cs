@@ -43,5 +43,17 @@ namespace HowItShouldBeDone.VID
             _context.Dispose();
         }
 
+
+        public ActionResult New()
+        {
+            var Albums = _context.Albums.ToList();
+
+            var viewmodel = new SongFormViewmodel()
+            {
+                song = new Song(),
+                Albums = Albums
+            };
+            return View("SongForm", viewmodel);
+        }
     }
 }
