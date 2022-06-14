@@ -171,6 +171,10 @@
     <Compile Include="Migrations\202206132210036_Initial.Designer.cs">
       <DependentUpon>202206132210036_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206140923079_Youtubeurl.cs" />
+    <Compile Include="Migrations\202206140923079_Youtubeurl.Designer.cs">
+      <DependentUpon>202206140923079_Youtubeurl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Artist.cs" />
@@ -278,6 +282,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202206132210036_Initial.resx">
       <DependentUpon>202206132210036_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206140923079_Youtubeurl.resx">
+      <DependentUpon>202206140923079_Youtubeurl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
