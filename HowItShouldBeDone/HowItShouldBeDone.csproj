@@ -184,6 +184,7 @@
     <Compile Include="Models\Shirt.cs" />
     <Compile Include="Models\Shop.cs" />
     <Compile Include="Models\Song.cs" />
+    <Compile Include="Repositories\AlbumRepository.cs" />
     <Compile Include="VID\AccountController.cs" />
     <Compile Include="VID\AlbumsController.cs" />
     <Compile Include="VID\HomeController.cs" />

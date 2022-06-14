@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using HowItShouldBeDone.Models;
+using HowItShouldBeDone.Repositories;
 
 namespace HowItShouldBeDone.VID
 {
@@ -14,10 +15,15 @@ namespace HowItShouldBeDone.VID
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        private readonly AlbumRepository _Arepos;
         // GET: Albums
+        public AlbumsController()
+        {
+            _Arepos = new AlbumRepository();
+        }
         public ActionResult Index()
         {
-            var albums = db.Albums.Include(a => a.Artist);
+            var albums = _Arepos.GetAllWithArtist();
             return View(albums.ToList());
         }
 
