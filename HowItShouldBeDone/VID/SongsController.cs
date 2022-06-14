@@ -137,7 +137,7 @@ namespace HowItShouldBeDone.VID
             return View(song);
         }
 
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
 
         public ActionResult DeleteConfirmed(int id)
         {
