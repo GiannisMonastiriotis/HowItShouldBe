@@ -30,11 +30,20 @@ namespace HowItShouldBeDone.VID
         // GET: Albums/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            //if (id == null)
+            //{
+            //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            Album album;
+
+            try {
+                 album = _Arepos.GetByIdWithArtist(id);
+            }
+            catch
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Album album = db.Albums.Find(id);
+           
             if (album == null)
             {
                 return HttpNotFound();
