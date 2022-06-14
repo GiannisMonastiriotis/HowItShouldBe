@@ -55,5 +55,53 @@ namespace HowItShouldBeDone.VID
             };
             return View("SongForm", viewmodel);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(Song song)
+        {
+            try
+            {
+                song.Youtube = $"https://www.youtube.com/embed/{song.Youtube}";
+                _context.Songs.Add(song);
+                if (!ModelState.IsValid)
+                {
+                    var viewModel = new SongFormViewmodel() { song = new Song(),Albums = _context.Albums.ToList()};
+                    return View("SongFrom", viewModel);
+                }
+                _context.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+    
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var song = _context.Songs
+                .Include(s=> s.Album)
+                .SingleOrDefault(s => s.ID == id);
+            if(song == null)
+            {
+                return HttpNotFound();
+            }
+
+            var albums = _context.Albums.ToList();
+
+            var viewModel = new SongFormViewmodel()
+            {
+                song = song,
+                Albums = albums
+            };
+
+            return View("SongFrom", viewModel);
+
+        }
     }
 }
