@@ -12,11 +12,12 @@ namespace HowItShouldBeDone.Models
 
         [Required(ErrorMessage = "Title is required")]
         [StringLength(255, MinimumLength = 3)]
+        [Display(Name ="Song Title")]
         public string Title { get; set; }
 
         public int AlbumId { get; set; }
         public Album Album { get; set; }
 
-
+        public string Youtube { get; set; }
     }
 }

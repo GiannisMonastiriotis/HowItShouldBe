@@ -11,6 +11,7 @@ namespace HowItShouldBeDone.Models
         public int ID { get; set; }
         [Required(ErrorMessage = "Title is required")]
         [StringLength(60, MinimumLength =3)]
+        [Display(Name ="Album Title")]
         public string Title { get; set; }
 
         [DataType(DataType.MultilineText)]
