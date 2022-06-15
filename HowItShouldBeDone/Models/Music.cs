@@ -7,5 +7,6 @@ namespace HowItShouldBeDone.Models
 {
     public class Music
     {
+        public Genre Genre { get; set; }
     }
 }

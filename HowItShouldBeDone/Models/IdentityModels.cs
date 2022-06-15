@@ -20,14 +20,19 @@ namespace HowItShouldBeDone.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Artist> Artists { get; set; }
+        public DbSet<Song> Songs { get; set; }
+        public DbSet<Album> Albums { get; set; }
+        public DbSet<Gigticket> Gigtickets { get; set; }
+        public DbSet<Genre> Genre { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
-        public DbSet<Artist> Artists { get; set; }
-        public DbSet<Song> Songs { get; set; }
-        public DbSet<Album> Albums { get; set; }
+    
+
 
         public static ApplicationDbContext Create()
         {

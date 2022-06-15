@@ -175,10 +175,20 @@
     <Compile Include="Migrations\202206140923079_Youtubeurl.Designer.cs">
       <DependentUpon>202206140923079_Youtubeurl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206151125489_AddedGenreAndGigTicket.cs" />
+    <Compile Include="Migrations\202206151125489_AddedGenreAndGigTicket.Designer.cs">
+      <DependentUpon>202206151125489_AddedGenreAndGigTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206151153072_RequiredPropertiesAdded.cs" />
+    <Compile Include="Migrations\202206151153072_RequiredPropertiesAdded.Designer.cs">
+      <DependentUpon>202206151153072_RequiredPropertiesAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Gigticket.cs" />
     <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\Music.cs" />
     <Compile Include="Models\Shirt.cs" />
@@ -292,6 +302,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206140923079_Youtubeurl.resx">
       <DependentUpon>202206140923079_Youtubeurl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206151125489_AddedGenreAndGigTicket.resx">
+      <DependentUpon>202206151125489_AddedGenreAndGigTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206151153072_RequiredPropertiesAdded.resx">
+      <DependentUpon>202206151153072_RequiredPropertiesAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
