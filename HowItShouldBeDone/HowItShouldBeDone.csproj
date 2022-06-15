@@ -200,6 +200,7 @@
     <Compile Include="Models\Song.cs" />
     <Compile Include="Repositories\ArtistRepository.cs" />
     <Compile Include="Repositories\AlbumRepository.cs" />
+    <Compile Include="Repositories\GenresRepository.cs" />
     <Compile Include="VID\AccountController.cs" />
     <Compile Include="VID\AlbumsController.cs" />
     <Compile Include="VID\GigticketController.cs" />

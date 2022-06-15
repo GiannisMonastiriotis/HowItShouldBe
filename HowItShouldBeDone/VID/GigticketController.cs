@@ -1,4 +1,5 @@
-﻿using HowItShouldBeDone.Viewmodels;
+﻿using HowItShouldBeDone.Repositories;
+using HowItShouldBeDone.Viewmodels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace HowItShouldBeDone.VID
     public class GigticketController : Controller
     {
         private readonly GigTicketFormRepository _TickRepos;
-
+        private readonly GenresRepository _GenreRepos;
         public GigticketController()
         {
             _TickRepos = new GigTicketFormRepository();
@@ -18,7 +19,12 @@ namespace HowItShouldBeDone.VID
         //GET: Gigticket
         public ActionResult Create()
         {
-            return View();
+            var viewModel = new GigFormViewModel()
+            {
+                Genres = _GenreRepos.GetAll()
+
+            };
+            return View(viewModel);
         }
     }
 }
