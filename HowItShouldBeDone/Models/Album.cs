@@ -21,5 +21,6 @@ namespace HowItShouldBeDone.Models
         public int ArtistId { get; set; }
         public Artist Artist { get; set; }
 
+        public ICollection<Shop> Shops { get; set; }
     }
 }

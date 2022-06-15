@@ -187,6 +187,10 @@
     <Compile Include="Migrations\202206151203069_MusicGenres.Designer.cs">
       <DependentUpon>202206151203069_MusicGenres.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206151544058_Added_GenreId_ArtistId.cs" />
+    <Compile Include="Migrations\202206151544058_Added_GenreId_ArtistId.Designer.cs">
+      <DependentUpon>202206151544058_Added_GenreId_ArtistId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Artist.cs" />
@@ -194,6 +198,7 @@
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Gigticket.cs" />
     <Compile Include="Models\Manager.cs" />
+    <Compile Include="Viewmodels\ManagingAlbumShop.cs" />
     <Compile Include="Models\Music.cs" />
     <Compile Include="Models\Shirt.cs" />
     <Compile Include="Models\Shop.cs" />
@@ -315,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206151203069_MusicGenres.resx">
       <DependentUpon>202206151203069_MusicGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206151544058_Added_GenreId_ArtistId.resx">
+      <DependentUpon>202206151544058_Added_GenreId_ArtistId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

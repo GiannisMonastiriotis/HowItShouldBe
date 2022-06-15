@@ -12,12 +12,18 @@ namespace HowItShouldBeDone.Models
         [Required]
         public ApplicationUser Customer { get; set; }
 
-        public DateTime DateTime { get; set; }
         [Required]
+        public string ArtistId { get; set; }
+
+        [Required]
+        public byte GenreId { get; set; }
+        public DateTime DateTime { get; set; }
+
+        
         [StringLength(255)]
         public string Venue { get; set; }
 
-        [Required]
+  
         public Genre Genre { get; set; }
 
         public double Price { get; set; }

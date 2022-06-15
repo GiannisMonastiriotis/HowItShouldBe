@@ -25,7 +25,8 @@ namespace HowItShouldBeDone.Models
         public DbSet<Album> Albums { get; set; }
         public DbSet<Gigticket> Gigtickets { get; set; }
         public DbSet<Genre> Genres { get; set; }
-
+        //public DbSet<ManagingAlbumShop> ManagingAlbumShops { get; set; }
+        //public DbSet<Shop> Shops { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
