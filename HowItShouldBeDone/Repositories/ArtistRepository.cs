@@ -7,51 +7,51 @@ using HowItShouldBeDone.Models;
 
 namespace HowItShouldBeDone.Repositories
 {
-    public class AlbumRepository
+    public class Artistrepository
     {
         private readonly ApplicationDbContext _context;
 
-        public AlbumRepository()
+        public Artistrepository()
         {
             _context = new ApplicationDbContext();
         }
 
-        public IEnumerable<Album> GetAll()
+        public IEnumerable<Artist> GetAll()
         {
-            return _context.Albums;
+            return _context.Artists;
         }
 
-        public IEnumerable<Album> GetAllWithArtist()
+        public IEnumerable<Artist> GetAllWithAlbum()
         {
-            var albums = _context.Albums.Include(a => a.Artist);
-            return albums; 
+            var artists = _context.Artists.Include(a => a.Albums);
+            return artists; 
         }
-        public Album GetById(int? id)
+        public Artist GetById(int? id)
         {
             if (id == null)
             {
                 throw new ArgumentNullException(nameof(id));
             }
-            return _context.Albums.SingleOrDefault(a => a.ID == id);
+            return _context.Artists.SingleOrDefault(a => a.ID == id);
         }
 
-        public Album GetByIdWithArtist(int? id)
+        public Artist GetByIdWithAlbum(int? id)
         {   if(id == null)
             {
                 throw new ArgumentNullException(nameof(id));
             }
-            return _context.Albums.Include(a => a.Artist).SingleOrDefault(a => a.ID == id);
+            return _context.Artists.Include(a => a.Albums).SingleOrDefault(a => a.ID == id);
         }
         
-        public void Create(Album album)
+        public void Create(Artist artist)
         {
-            _context.Albums.Add(album);
+            _context.Artists.Add(artist);
             _context.SaveChanges();
         }
 
-        public void Update(Album album)
+        public void Update(Artist artist)
         {
-            _context.Entry(album).State = EntityState.Modified;
+            _context.Entry(artist).State = EntityState.Modified;
             _context.SaveChanges();
 
         }
@@ -60,8 +60,8 @@ namespace HowItShouldBeDone.Repositories
             {
                 throw new ArgumentNullException(nameof(id));
             }
-            var album = GetById(id);
-            _context.Albums.Remove(album);
+            var artist = GetById(id);
+            _context.Artists.Remove(artist);
             _context.SaveChanges();
         }
 

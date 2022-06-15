@@ -13,12 +13,13 @@ namespace HowItShouldBeDone.VID
 {
     public class AlbumsController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-
+        //private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly Artistrepository _Artistrepos;
         private readonly AlbumRepository _Arepos;
         // GET: Albums
         public AlbumsController()
         {
+            _Artistrepos = new Artistrepository();
             _Arepos = new AlbumRepository();
         }
         public ActionResult Index()
@@ -54,7 +55,7 @@ namespace HowItShouldBeDone.VID
         // GET: Albums/Create
         public ActionResult Create()
         {
-            ViewBag.ArtistId = new SelectList(db.Artists, "ID", "FullName");
+            ViewBag.ArtistId = new SelectList(_Artistrepos.GetAll(), "ID", "FullName");
             return View();
         }
 
@@ -67,28 +68,32 @@ namespace HowItShouldBeDone.VID
         {
             if (ModelState.IsValid)
             {
-                db.Albums.Add(album);
-                db.SaveChanges();
+                _Arepos.Create(album);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ArtistId = new SelectList(db.Artists, "ID", "FirstName", album.ArtistId);
+            ViewBag.ArtistId = new SelectList(_Artistrepos.GetAll(), "ID", "FirstName", album.ArtistId);
             return View(album);
         }
 
         // GET: Albums/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            Album album;
+            try
+            {
+                 album = _Arepos.GetById(id);
+
+            }
+            catch
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Album album = db.Albums.Find(id);
             if (album == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ArtistId = new SelectList(db.Artists, "ID", "FullName", album.ArtistId);
+            ViewBag.ArtistId = new SelectList(_Artistrepos.GetAll(), "ID", "FullName", album.ArtistId);
             return View(album);
         }
 
@@ -101,22 +106,26 @@ namespace HowItShouldBeDone.VID
         {
             if (ModelState.IsValid)
             {
-                db.Entry(album).State = EntityState.Modified;
-                db.SaveChanges();
+                _Arepos.Update(album);
                 return RedirectToAction("Index");
             }
-            ViewBag.ArtistId = new SelectList(db.Artists, "ID", "FirstName", album.ArtistId);
+            ViewBag.ArtistId = new SelectList(_Arepos.GetAll(), "ID", "FirstName", album.ArtistId);
             return View(album);
         }
-
+         
         // GET: Albums/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            Album album;
+            try
+            {
+                 album = _Arepos.GetByIdWithArtist(id);
+            }
+            catch
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Album album = db.Albums.Find(id);
+           
             if (album == null)
             {
                 return HttpNotFound();
@@ -129,9 +138,15 @@ namespace HowItShouldBeDone.VID
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Album album = db.Albums.Find(id);
-            db.Albums.Remove(album);
-            db.SaveChanges();
+          
+            try
+            {
+                _Arepos.Delete(id);
+            }
+            catch
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             return RedirectToAction("Index");
         }
 
@@ -139,7 +154,8 @@ namespace HowItShouldBeDone.VID
         {
             if (disposing)
             {
-                db.Dispose();
+                _Arepos.Dispose();
+                _Artistrepos.Dispose();
             }
             base.Dispose(disposing);
         }
