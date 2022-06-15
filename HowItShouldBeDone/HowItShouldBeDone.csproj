@@ -183,6 +183,10 @@
     <Compile Include="Migrations\202206151153072_RequiredPropertiesAdded.Designer.cs">
       <DependentUpon>202206151153072_RequiredPropertiesAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206151203069_MusicGenres.cs" />
+    <Compile Include="Migrations\202206151203069_MusicGenres.Designer.cs">
+      <DependentUpon>202206151203069_MusicGenres.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Artist.cs" />
@@ -308,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206151153072_RequiredPropertiesAdded.resx">
       <DependentUpon>202206151153072_RequiredPropertiesAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206151203069_MusicGenres.resx">
+      <DependentUpon>202206151203069_MusicGenres.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
