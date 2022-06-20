@@ -64,6 +64,8 @@ namespace HowItShouldBeDone.Models
 
     public class RegisterViewModel
     {
+
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -79,6 +81,10 @@ namespace HowItShouldBeDone.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string Name { get; set; }
     }
 
     public class ResetPasswordViewModel

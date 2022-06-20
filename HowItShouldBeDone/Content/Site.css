@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-size: 17px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +22,68 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6{
+    font-family: 'Fascinate', cursive
+}
+
+.navbar-github{
+    background-color:#00ff90;
+    border-color:#ff1111;
+}
+
+.navbar-github.navbar.nav > li > a{
+    color: white;
+}
+
+.navbar-brand-github{
+    color:white;
+    font-weight:700;
+    float: left;
+    height:50px;
+    padding: 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.form-group{
+    margin-bottom: 20px;
+}
+
+.form-control{
+    font-size: 17px;
+    padding: 20px 15px;
+    border-radius: initial;
+    height: 5em;
+}
+
+.btn{
+    font-size:17px;
+    padding: 7px 20px;
+    border-radius: 9px;
+}
+
+:root{
+    --clr-primary-2: #2d3954;
+    --clr-primary-1: #fa832b;
+    --transition:all 0.3s linear;
+
+}
+
+span.field-validation-error{
+    color:green;
+    font-weight:500;
 }

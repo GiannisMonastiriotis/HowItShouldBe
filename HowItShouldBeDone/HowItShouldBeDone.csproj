@@ -167,6 +167,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Migrations\202206132210036_Initial.cs" />
     <Compile Include="Migrations\202206132210036_Initial.Designer.cs">
       <DependentUpon>202206132210036_Initial.cs</DependentUpon>
@@ -191,6 +192,18 @@
     <Compile Include="Migrations\202206151544058_Added_GenreId_ArtistId.Designer.cs">
       <DependentUpon>202206151544058_Added_GenreId_ArtistId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206161747199_AddNameToApplicationUser.cs" />
+    <Compile Include="Migrations\202206161747199_AddNameToApplicationUser.Designer.cs">
+      <DependentUpon>202206161747199_AddNameToApplicationUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206201259126_LoL.cs" />
+    <Compile Include="Migrations\202206201259126_LoL.Designer.cs">
+      <DependentUpon>202206201259126_LoL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206201325423_LoL1.cs" />
+    <Compile Include="Migrations\202206201325423_LoL1.Designer.cs">
+      <DependentUpon>202206201325423_LoL1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Artist.cs" />
@@ -198,6 +211,9 @@
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Gigticket.cs" />
     <Compile Include="Models\Manager.cs" />
+    <Compile Include="VID\ShopAlbumManagerController.cs" />
+    <Compile Include="Viewmodels\ValidTime.cs" />
+    <Compile Include="Viewmodels\FutureDate.cs" />
     <Compile Include="Viewmodels\ManagingAlbumShop.cs" />
     <Compile Include="Models\Music.cs" />
     <Compile Include="Models\Shirt.cs" />
@@ -291,6 +307,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -323,6 +340,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206151544058_Added_GenreId_ArtistId.resx">
       <DependentUpon>202206151544058_Added_GenreId_ArtistId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206161747199_AddNameToApplicationUser.resx">
+      <DependentUpon>202206161747199_AddNameToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206201259126_LoL.resx">
+      <DependentUpon>202206201259126_LoL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206201325423_LoL1.resx">
+      <DependentUpon>202206201325423_LoL1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

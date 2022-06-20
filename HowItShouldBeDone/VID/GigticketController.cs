@@ -35,19 +35,25 @@ namespace HowItShouldBeDone.VID
 
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(GigFormViewModel viewModel)
         {
-            var customerId = User.Identity.GetUserId();
-            var customer = _context.Users.Single(u => u.Id == customerId);
+            
+          
             var genre = _context.Genres.Single(g => g.Id == viewModel.Genre);
 
+            if (!ModelState.IsValid)
+            {
+                viewModel.Genres = _context.Genres.ToList();
+                return View("Create", viewModel);
+            }
             var gig = new Gigticket()
             {
-                Customer = customer,
-                DateTime = DateTime.Parse(string.Format("{0} {1}",viewModel.Date, viewModel.Time)),
+                ArtistId = User.Identity.GetUserId(),
+                DateTime = viewModel.GetDateTime(),
                 Venue = viewModel.Venue,
-                Genre = genre
-            };
+                GenreId = viewModel.Genre
+        };
             return RedirectToAction("Index", "Home");
         }
     }

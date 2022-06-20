@@ -10,22 +10,15 @@ namespace HowItShouldBeDone.Models
     public class ManagingAlbumShop
     {
 
-        //ICollection<Shop> Shops { get; set; }
-
-        //ICollection<Album> Albums { get; set; }
-
-        //public ManagingAlbumShop()
-        //{
-        //    Shops = new HashSet<Shop>();
-        //    Albums = new HashSet<Album>();
-        //}
-       // [ForeignKey("Album")]
         public Album Album { get; set; }
-      //  [ForeignKey("Shop")]
+
         public Shop Shop { get; set; }
        
+        [Key]
+        [Column(Order = 1)]
         public int ShopId { get; set; }
-       
+        [Key]
+        [Column(Order = 2)]
         public int AlbumId { get; set; }
 
     }
